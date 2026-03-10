@@ -38,6 +38,8 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 <script>
         var allergy_count = 0;
         var cold_count = 0;
+        var allergy_percent = 0;
+        var cold_percent =0;
 
 
         function allergyAdd(){
@@ -50,6 +52,12 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
             alert("allergy_count is " + allergy_count + "\ncold_count is " + cold_count);
         }
 
+        function changeText(){
+            var allergy_percent = allergy_count/(allergy_count + cold_count)*100;
+            var cold_percent = cold_count/(allergy_count + cold_count)*100
+            var initialText = document.getElementById("results");
+            initialText.innerHTML = "probability it is allergies = " + allergy_percent + "% <br> probability it is a cold= " + cold_percent + "%"
+        }
   </script>
 
 
@@ -97,8 +105,8 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 	
     	<div id="content" class="w3-container">
         <p>Do you have a fever?</p>  
-        <a href="#two" oneclick="coldAdd()" class="w3-btn w3-grey w3-round"> Yes </a>
-        <a href="#two" oneclick="allergyAdd()" class="w3-btn w3-grey w3-round"> No </a> 
+        <a href="#two" onclick="coldAdd()" class="w3-btn w3-grey w3-round"> Yes </a>
+        <a href="#two" onclick="allergyAdd()" class="w3-btn w3-grey w3-round"> No </a>
     	</div>
 </div>
 
@@ -110,7 +118,8 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 	
 	<div id="content" class="w3-container">
 		<p>Do you have body aches?</p>
-        <a href="#three" class="w3-btn w3-grey w3-round"> Go to page three </a>
+        <a href="#three" onclick="coldAdd()" class="w3-btn w3-grey w3-round"> Yes </a>
+        <a href="#three" onclick="allergyAdd()" class="w3-btn w3-grey w3-round"> No </a>
 	</div>
 </div>	
 
@@ -121,7 +130,8 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 
     <div id="content" class="w3-container">
         <p>Do you feel itchy?</p>
-        <a href="#four" class="w3-btn w3-grey w3-round"> Go to page four</a>
+        <a href="#four" onclick="coldAdd()" class="w3-btn w3-grey w3-round"> No </a>
+        <a href="#four" onclick="allergyAdd()" class="w3-btn w3-grey w3-round"> Yes </a>
     </div>
 </div>
 
@@ -132,7 +142,8 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 
     <div id="content" class="w3-container">
         <p>Has it lasted longer than 14 days?</p>
-        <a href="#five" class="w3-btn w3-grey w3-round"> Go to page five</a>
+        <a href="#five" onclick="coldAdd()" class="w3-btn w3-grey w3-round"> No </a>
+        <a href="#five" onclick="allergyAdd()" class="w3-btn w3-grey w3-round"> Yes </a>
     </div>
 </div>
 
@@ -143,7 +154,8 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 
     <div id="content" class="w3-container">
         <p>Did this occur during the colder months?</p>
-        <a href="#six" class="w3-btn w3-grey w3-round"> Go to page six</a>
+        <a href="#six" onclick="coldAdd()" class="w3-btn w3-grey w3-round"> Yes </a>
+        <a href="#six" onclick="allergyAdd()" class="w3-btn w3-grey w3-round"> No </a>
     </div>
 </div>
 
@@ -154,7 +166,19 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 
     <div id="content" class="w3-container">
         <p>Do you have any rashes?</p>
-        <a href="#1" class="w3-btn w3-grey w3-round"> Go to page one</a>
+        <a href="#seven" onclick="coldAdd()" class="w3-btn w3-grey w3-round"> No </a>
+        <a href="#seven" onclick="allergyAdd()" class="w3-btn w3-grey w3-round"> Yes </a>
+    </div>
+</div>
+
+<div class="page" id="seven">
+    <div class="w3-container w3-flat-carrot">
+        <h1>Results</h1>
+    </div>
+
+    <div id="content" class="w3-container">
+        <p id="results">Press on the button below to see your results!</p>
+        <a onclick="changeText()" class="w3-btn w3-grey w3-round"> Click here for results! </a>
     </div>
 </div>
 
